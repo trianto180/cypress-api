@@ -13,6 +13,8 @@ describe('validate header', ()=>{
         cy.get('@pokeapi').its('headers').its('content-type').should('include', 'application/json; charset=utf-8')
     });
 
+
+    /*Validate Status code*/
     it('Validate status code', () => {
         cy.request('https://pokeapi.co/api/v2/pokemon/ditto').as('ditto')
         cy.get('@ditto').its('status').should('equal', 200)
@@ -24,5 +26,11 @@ describe('validate header', ()=>{
             url: 'https://reqres.in/api/users?page=2'
         }).as('users')
         cy.get('@users').its('status').should('equal', 200)
+    });
+
+    /*Validate content Body*/
+    it('Validate content', () => {
+        cy.request('https://pokeapi.co/api/v2/pokemon/bulbasaur').as('bulbasaur')
+        cy.get('@bulbasaur').its('body').should('include', {name: "bulbasaur"})
     });
 });
