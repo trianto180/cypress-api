@@ -33,4 +33,13 @@ describe('validate header', ()=>{
         cy.request('https://pokeapi.co/api/v2/pokemon/bulbasaur').as('bulbasaur')
         cy.get('@bulbasaur').its('body').should('include', {name: "bulbasaur"})
     });
+
+    it('Validate  negativ response', () => {
+        cy.request({
+            method: "GET",
+            url: 'https://pokeapi.co/api/v2/pokemon/negativresponse',
+            failOnStatusCode: false
+        }).as('negativ')
+        cy.get('@negativ').its('status').should('equal', 404)
+    });
 });
