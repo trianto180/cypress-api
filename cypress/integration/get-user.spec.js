@@ -9,4 +9,5 @@ describe('Get User', ()=>{
         cy.get('@users').its('status').should('eq', 200)
         cy.get('@users').its('headers').its('content-type').should('include', 'application/json; charset=utf-8')
     });
+    
 });
