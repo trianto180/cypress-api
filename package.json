@@ -1,0 +1,10 @@
+{
+  "name": "Cypress-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "angga",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "9.7.0"
+  }
+}
